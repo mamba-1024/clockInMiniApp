@@ -31,13 +31,18 @@ const config = {
   cache: {
     enable: false // Webpack 持久化缓存配置，建议开启。默认配置请参考：https://docs.taro.zone/docs/config-detail#cache
   },
-  sass: {
-    resource: [
-      path.resolve(__dirname, '..', 'src/assets/styles/custom_theme.scss'),
-    ],
-    data: `@import "@nutui/nutui-react-taro/dist/styles/variables.scss";`,
-  },
+  // sass: {
+  //   resource: [
+  //     path.resolve(__dirname, '..', 'src/assets/styles/custom_theme.scss')
+  //   ],
+  //   data: `@import "node_modules/@nutui/nutui-react-taro/dist/styles/variables.scss";`,
+  // },
   mini: {
+    enableExtract: true,
+    miniCssExtractPluginOption: {
+      //忽略css文件引入顺序
+      ignoreOrder: true
+    },
     postcss: {
       pxtransform: {
         enable: true,

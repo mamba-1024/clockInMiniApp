@@ -3,6 +3,11 @@ export default defineAppConfig({
     'pages/clockIn/index',
     'pages/attendance/index',
     'pages/index/index',
+    'pages/login/index',
+    'pages/vacate/index',
+    'pages/overtime/index',
+    'pages/vacateRecord/index',
+    'pages/overtimeRecord/index',
   ],
   tabBar: {
     color: '#707070',

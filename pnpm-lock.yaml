@@ -4,6 +4,7 @@ specifiers:
   '@babel/core': ^7.8.0
   '@babel/runtime': ^7.7.7
   '@dcasia/mini-program-tailwind-webpack-plugin': ^1.5.6
+  '@nutui/icons-react-taro': ^0.0.1
   '@nutui/nutui-react-taro': ^2.0.0
   '@pmmmwh/react-refresh-webpack-plugin': ^0.5.5
   '@tarojs/cli': 3.6.13
@@ -53,6 +54,7 @@ specifiers:
 
 dependencies:
   '@babel/runtime': registry.npmmirror.com/@babel/runtime/7.22.10
+  '@nutui/icons-react-taro': registry.npmmirror.com/@nutui/icons-react-taro/0.0.1
   '@nutui/nutui-react-taro': registry.npmmirror.com/@nutui/nutui-react-taro/2.0.13_biqbaboplfbrettd7655fr4n2y
   '@tarojs/components': registry.npmmirror.com/@tarojs/components/3.6.13_i4orevrhleztpnydldjhgioe4y
   '@tarojs/helper': registry.npmmirror.com/@tarojs/helper/3.6.13

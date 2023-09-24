@@ -2,6 +2,9 @@ import { useState } from 'react';
 import { DatePicker, Cell, Picker, Button } from '@nutui/nutui-react-taro';
 import { Right } from '@nutui/icons-react-taro';
 import Taro from '@tarojs/taro';
+import { getToken } from '../../utils';
+import { Api } from '../../api'
+
 
 const startDate = new Date(2023, 0, 1);
 
@@ -82,12 +85,24 @@ export default function Vacate() {
       });
       return;
     }
+    const user: any = getToken();
     const params = {
-      startTime: desc1,
-      endTime: desc2,
-      type: desc3,
+      startDate: desc1,
+      endDate: desc2,
+      leaveType: desc3,
+      employeeId: user.id,
+      employeeName: user.employeeName,
     };
-    console.log(params);
+    Api.postApprovals(params).then((res: any) => {
+      if (res.data) {
+        Taro.showToast({
+          title: '提交成功',
+          icon: 'success',
+          duration: 1500,
+        });
+        Taro.navigateBack();
+      }
+    });
   };
 
   return (

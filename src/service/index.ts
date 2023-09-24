@@ -43,16 +43,16 @@ export const getVersion = () => {
   // @ts-ignore
   switch (__wxConfig.envVersion) {
     case 'develop':
-      return 'http://localhost:8080'
+      return 'http://192.168.0.110:8080'
 
     case 'trial':
-      return 'http://localhost:8080'
+      return 'http://192.168.0.110:8080'
 
     case 'release':
-      return 'http://localhost:8080'
+      return 'http://192.168.0.110:8080'
 
     default:
-      return 'http://localhost:8080'
+      return 'http://192.168.0.110:8080'
   }
 }
 

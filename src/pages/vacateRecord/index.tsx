@@ -1,40 +1,26 @@
-import { useDidShow } from '@tarojs/taro';
+import Taro, { useDidShow } from '@tarojs/taro';
 import { useState } from 'react';
 import RecordItem from '../../components/recordItem';
 import { Cell } from '@nutui/nutui-react-taro';
+import { Api } from '../../api'
 
-const mockData = [
-  {
-    id: 1,
-    action: 'overtime',
-    startTime: '2023/8/1 18:00',
-    endTime: '2023/8/1 22:00',
-    status: 'approved',
-    desc: "看病"
-  },
-  {
-    id: 2,
-    action: 'overtime',
-    startTime: '2023/8/3 19:00',
-    endTime: '2023/8/3 22:00',
-    status: 'approved',
-    desc: "去医院"
-  },
-  {
-    id: 3,
-    action: 'overtime',
-    startTime: '2023/8/5 18:00',
-    endTime: '2023/8/5 22:00',
-    status: 'rejected',
-    desc: "去打游戏"
-  },
-];
+
 
 export default function VacateRecord() {
   const [record, setRecord] = useState<any[]>([]);
   useDidShow(() => {
-    console.log('VacateRecord');
-    setRecord(mockData);
+    // 从缓存中获取token, token不存在则跳转到登录页
+    const token = Taro.getStorageSync('token');
+    if (!token) {
+      Taro.reLaunch({ url: '/pages/login/index' });
+      return;
+    }
+    Api.getApprovals(Number(token.id)).then((res: any) => {
+      console.log('getApprovals: ', res);
+      if (res.success) {
+        setRecord(res.data.data);
+      }
+    });
   });
 
   return (

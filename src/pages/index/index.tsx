@@ -5,8 +5,9 @@ import { getToken } from '../../utils'
 
 import './index.scss'
 
+
 function Index() {
-  const [user, setUser] = React.useState<any>({})
+  const [user, setUser] = React.useState<any>({}) // {"id":1004,"employeeName":"赵六12","department":"技术部","position":"软件工程师"}
 
   useDidShow(() => {
     // 从缓存中获取token, token不存在则跳转到登录页
@@ -33,11 +34,11 @@ function Index() {
             shape="square"
             src="https://img12.360buyimg.com/imagetools/jfs/t1/143702/31/16654/116794/5fc6f541Edebf8a57/4138097748889987.png"
           />
-          <span className="ml-[10px]">{user?.username}</span>
+          <span className="ml-[10px]">{user?.employeeName}</span>
         </div>
       </Cell>
-      <Cell title='手机号' extra={user?.phone}></Cell>
-      <Cell title='年龄' extra={user?.age}></Cell>
+      <Cell title='部门' extra={user?.department}></Cell>
+      <Cell title='职位' extra={user?.position}></Cell>
       <Cell className='flex justify-center items-center mt-40px'>
         <span className='text-primary' onClick={handleLogout}>退出登录</span>
       </Cell>

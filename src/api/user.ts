@@ -6,7 +6,7 @@ import request from '../service'
 * @returns
 */
 export const loginApi = (data: any) => {
-  return request.post('/api/login', data)
+  return request.post('/users/login', data)
 }
 
 

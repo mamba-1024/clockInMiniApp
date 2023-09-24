@@ -16,13 +16,29 @@ export const getAttendanceApi = () => {
  * /attendance/doAttendance
  */
 export const doAttendanceApi = (data: any) => {
-  return request.post('/attendance/doAttendance', data)
+  return request.post('/attendances/punch', data)
+}
+
+
+/**
+ * 当天打卡记录
+ * /attendance/attendanceRecord
+ */
+export const getClockInRecordApi = (data: any) => {
+  return request.get('/attendances/punchRecord', data)
 }
 
 /**
- * 考勤记录
- * /attendance/attendanceRecord
+ * 请假记录
+ * /approvals
  */
-export const postAttendanceRecord = (data: any) => {
-  return request.post('/attendance/attendanceRecord', data)
+export const getApprovals = (id: any) => {
+  return request.get(`/approvals/${id}`)
+}
+
+/**
+ * 请假
+ */
+export const postApprovals = (data: any) => {
+  return request.post('/approvals', data)
 }

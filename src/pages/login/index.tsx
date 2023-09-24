@@ -14,10 +14,12 @@ const Login = () => {
 
   const submitSucceed = (values: any) => {
     Api.loginApi(values).then((res: any) => {
-      console.log(res)
-      if(res.success) {
+      console.log('loginApi: ', res)
+      if(res.data) {
         Taro.setStorageSync('token', res.data)
         Taro.reLaunch({ url: '/pages/index/index' })
+      } else {
+        Taro.showToast({ title: '登录失败', icon: 'error' })
       }
     })
   }
